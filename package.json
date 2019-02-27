@@ -1,0 +1,29 @@
+{
+  "name": "typescript-category",
+  "version": "1.0.0",
+  "description": "「JavaScriptで始める関数型プログラミング / 圏論のエッセンス」，講演におけるサンプルプログラム",
+  "scripts": {
+    "start": "run-s \"compile -- {1}.ts\" \"do -- {1}.js\" \"teardown -- {1}.js\" -- ",
+    "compile": "tsc",
+    "do": "node",
+    "teardown": "rimraf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guvalif/typescript-category.git"
+  },
+  "author": "Kazuyuki TAKASE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guvalif/typescript-category/issues"
+  },
+  "homepage": "https://github.com/Guvalif/typescript-category#readme",
+  "dependencies": {
+    "fp-ts": "^1.13.0",
+    "typescript": "^3.3.3"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
+  }
+}
