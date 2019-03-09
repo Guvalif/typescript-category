@@ -18,7 +18,7 @@ const createFailableTask = (log: string, flag: boolean = true): TaskEither<Error
                 }
                 else
                 {
-                    reject(new Error(''));
+                    reject(new Error('Failed!'));
                 }
             }),
         (e: Error) => e
@@ -30,4 +30,8 @@ const chained_task = createFailableTask('') // *1
     .chain(x => createFailableTask(x))      // *2
     .chain(x => createFailableTask(x));     // *3
 
-chained_task.run().then(x => console.log(x.value));
+chained_task.run().then(
+    x => console.log(
+        x.fold((e: Error) => `${e.name}(${e.message})`, x => x)
+    )
+);
