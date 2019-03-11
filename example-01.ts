@@ -17,4 +17,6 @@ const $es0 = [ 'li1', 'li2', 'li3', 'li4', 'li5' ];
 const $es1 = array.map($es0, addClass('highlight'));
 const $es2 = array.chain($es1, find('span'));
 
+console.log($es0);
+console.log($es1);
 console.log($es2);
