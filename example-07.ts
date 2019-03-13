@@ -25,7 +25,7 @@ const createFailableTask = (log: string, flag: boolean = true): TaskEither<Error
     )
 };
 
-// ↓第2引数 flag = false を、*1, *2, *3のうち任意の箇所に挿入
+// ↓第2引数 flag = false を、*1，*2，*3 のうち任意の箇所に挿入
 const chained_task = createFailableTask('') // *1
     .chain(x => createFailableTask(x))      // *2
     .chain(x => createFailableTask(x));     // *3
