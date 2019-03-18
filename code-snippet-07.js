@@ -9,6 +9,7 @@ const asyncSleep = sleep_ms =>
     setTimeout(() =>
     {
         console.log('The time has passed...', sleep_ms);
+
         defer.resolve();
     }, sleep_ms);
 
