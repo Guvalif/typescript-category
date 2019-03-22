@@ -1,5 +1,5 @@
 /**
- * @file Example 04
+ * @file Example 03
  * @author Kazuyuki TAKASE <takase@plen.jp>
  * @copyright PLEN Project Company Inc, and all authors
  * @license The MIT License (See also : http://opensource.org/licenses/mit-license.php)
