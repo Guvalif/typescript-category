@@ -5,30 +5,18 @@
  * @license The MIT License (See also : http://opensource.org/licenses/mit-license.php)
  */
 
-import { Task } from 'fp-ts/lib/Task';
+const f = (x: number): string  => x.toString();
+const g = (y: string): boolean => y.length % 2 === 0;
 
-const createSleepTask = (sleep_ms: number, log: string = ''): Task<string> =>
-{
-    return new Task<string>(
-        () => new Promise(resolve =>
-            {
-                setTimeout(() =>
-                {
-                    // ↓純粋関数型プログラミングの場合、このような書き方は本来NG！
-                    console.log('The time has passed...', sleep_ms);
+const length_A = (xs: Array<number>): number  => xs.length; // 自然変換を定める射
+const length_B = (ys: Array<string>): number  => ys.length; // 自然変換を定める射
+const length_C = (zs: Array<boolean>): number => zs.length; // 自然変換を定める射
 
-                    // ログを継続に渡すが、改行を忘れている…
-                    resolve(`${log}LOG: The time has passed... ${sleep_ms}`);
-                }, sleep_ms);
-            })
-    );
-};
+const id_n = (x: number): number => x;
 
-const chained_task = createSleepTask(3000)
-    .map(x => x + '\n')  // map によってログに改行を付与
-    .chain(x => createSleepTask(2000, x))
-    .map(x => x + '\n')  // map によってログに改行を付与
-    .chain(x => createSleepTask(1000, x))
-    .map(x => x + '\n'); // map によってログに改行を付与
+const xs = [ 0, 1, 2, 3, 4 ];
+const ys = xs.map(f);
+const zs = xs.map(f).map(g);
 
-chained_task.run().then(x => console.log(x));
+console.log( id_n(length_A(xs)) === length_B(ys) );
+console.log( id_n(length_B(ys)) === length_C(zs) );
