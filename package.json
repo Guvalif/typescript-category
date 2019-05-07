@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/Guvalif/typescript-category#readme",
   "dependencies": {
+    "folktale": "^2.3.2",
     "fp-ts": "^1.13.0",
+    "ramda": "^0.26.1",
     "typescript": "^3.3.3"
   },
   "devDependencies": {
