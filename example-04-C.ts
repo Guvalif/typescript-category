@@ -18,11 +18,11 @@ const createFailableTask = (flag: boolean): TaskEither<string, string> =>
     )
 };
 
-const failable_task1 = createFailableTask(true) // 成功する継続，失敗する継続を引数で変更
-    .map(x => x + '!!!');                       // map はどのような場合に行われるか？
+const failable_task1 = createFailableTask(true)            // 成功する継続，失敗する継続を引数で変更
+    .map(x => x + '!!!');                                  // map はどのような場合に行われるか？
 
-const failable_task2 = createFailableTask(true) // 成功する継続，失敗する継続を引数で変更
-    .chain(x => taskEither.of(x + '!!!'));      // chain はどのような場合に行われるか？
+const failable_task2 = createFailableTask(true)            // 成功する継続，失敗する継続を引数で変更
+    .chain(x => taskEither.of<string, string>(x + '!!!')); // chain はどのような場合に行われるか？
 
 failable_task1.run()
     .then(x => console.log(x));

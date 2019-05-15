@@ -5,6 +5,8 @@
  * @license The MIT License (See also : http://opensource.org/licenses/mit-license.php)
  */
 
+export {}; // Fix for namespace collision on VSCode
+
 // 「合成射の分配」が成り立つことの確認
 // ============================================================================
 const f   = (x: number): string  => x.toString();

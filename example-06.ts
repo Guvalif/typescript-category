@@ -5,6 +5,8 @@
  * @license The MIT License (See also : http://opensource.org/licenses/mit-license.php)
  */
 
+export {}; // Fix for namespace collision on VSCode
+
 const f = (x: number): string  => x.toString();
 const g = (y: string): boolean => y.length % 2 === 0;
 
