@@ -41,7 +41,7 @@ const toPoint = R.prop(R.__, CARDS);
 const suitToPoints = R.map(toPoint);
 
 // == addA2 :: [number] -> [number] -> [number]
-const addA2 = (ls, rs) => R.ap(R.ap([R.add], ls), rs);
+const addA2 = R.lift(R.add);
 
 // == getScores :: [[number]] -> [number]
 const getScores = R.reduce(addA2, [0]);
@@ -56,12 +56,12 @@ const getValidScore = R.pipe(
     )
 );
 
-// == getShuffledSuit :: () -> [string]
-const getShuffledSuit = () =>
+// == getShuffledSuit :: [string] -> [string] !impure
+const getShuffledSuit = (suit) =>
 {
-    let shuffled_suit = R.clone(SUIT);
+    let shuffled_suit = R.clone(suit);
 
-    for (let i = SUIT.length - 1; i > 0; i--)
+    for (let i = suit.length - 1; i > 0; i--)
     {
         const j = Math.floor(Math.random() * (i + 1));
 
@@ -74,7 +74,7 @@ const getShuffledSuit = () =>
 
 // Application Entry Point
 // ============================================================================
-const SHUFFLED_SUIT = getShuffledSuit();
+const SHUFFLED_SUIT = getShuffledSuit(SUIT);
 
 // == main :: number -> ()
 const main = (hand) =>
